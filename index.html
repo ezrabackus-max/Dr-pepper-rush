@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Orbit is a focused workspace for AI group conversations." />
+    <title>Orbit — AI group chat</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <aside class="sidebar">
+        <a class="brand" href="#top" aria-label="Orbit home"><span class="brand-mark">✦</span> orbit</a>
+        <button class="new-chat" id="new-chat"><span>+</span> New conversation</button>
+
+        <nav aria-label="Conversations">
+          <p class="nav-label">Conversations</p>
+          <a class="conversation active" href="#top"><span class="status-dot"></span><span>Launch planning</span><small>3</small></a>
+          <a class="conversation" href="#"><span class="status-dot warm"></span><span>Brand voice notes</span></a>
+          <a class="conversation" href="#"><span class="status-dot blue"></span><span>Q4 campaign</span></a>
+          <a class="conversation" href="#"><span class="status-dot violet"></span><span>Research sprint</span></a>
+        </nav>
+
+        <div class="sidebar-footer">
+          <button class="utility" id="theme-toggle"><span class="utility-icon">◐</span> Appearance</button>
+          <button class="profile"><span class="profile-avatar">JM</span><span>Jordan Miller<small>Free plan</small></span><span class="more">•••</span></button>
+        </div>
+      </aside>
+
+      <section class="workspace" id="top">
+        <header class="topbar">
+          <div><p class="eyebrow">PROJECT ROOM</p><h1>Launch planning <button class="edit-title" aria-label="Rename conversation">↗</button></h1></div>
+          <div class="header-actions"><button class="icon-button" aria-label="Invite people">♙</button><button class="share">Share <span>↗</span></button></div>
+        </header>
+
+        <div class="participants" aria-label="Participants">
+          <span class="participant-label">In this room</span>
+          <div class="avatar-stack"><span class="avatar sage">L</span><span class="avatar amber">N</span><span class="avatar lavender">S</span></div>
+          <span class="participant-copy">3 AI collaborators</span>
+          <button class="manage" id="manage-agents">Manage</button>
+        </div>
+
+        <section class="messages" id="messages" aria-live="polite">
+          <article class="message user-message">
+            <div class="message-meta"><span class="avatar user">JM</span><strong>You</strong><time>10:12 AM</time></div>
+            <div class="bubble">We’re launching the new planner in three weeks. Can we turn that into a simple, realistic plan?</div>
+          </article>
+
+          <article class="message">
+            <div class="message-meta"><span class="avatar sage">L</span><strong>Lyra</strong><span class="role">Strategy</span><time>10:12 AM</time></div>
+            <div class="message-content"><p>Absolutely. I’d anchor the launch around one clear promise: <em>your week, already figured out.</em> Start with a short waitlist push, then give early members something worth sharing.</p><div class="idea-card"><span class="card-kicker">LAUNCH ANGLE</span><strong>“Make space for what matters.”</strong><span>A calm alternative to productivity overload.</span></div></div>
+          </article>
+
+          <article class="message">
+            <div class="message-meta"><span class="avatar amber">N</span><strong>Noor</strong><span class="role">Growth</span><time>10:14 AM</time></div>
+            <div class="message-content"><p>I’d split the next 21 days into three beats. Keep the goal small at each stage so the team can learn and adjust quickly.</p><ol class="plan-list"><li><b>Week 1</b><span>Build the waitlist and test the message.</span></li><li><b>Week 2</b><span>Invite early access and collect proof.</span></li><li><b>Week 3</b><span>Launch publicly with customer stories.</span></li></ol></div>
+          </article>
+
+          <article class="message">
+            <div class="message-meta"><span class="avatar lavender">S</span><strong>Sol</strong><span class="role">Creative</span><time>10:16 AM</time></div>
+            <div class="message-content"><p>For the creative system, I’m picturing warm, low-pressure momentum. Tactile notes, open space, and a voice that feels like a thoughtful friend—not another taskmaster.</p><div class="quote">“A little more room in your day.”</div></div>
+          </article>
+        </section>
+
+        <div class="composer-wrap">
+          <form class="composer" id="composer">
+            <textarea id="prompt" rows="1" placeholder="Ask the room anything…" aria-label="Message the room"></textarea>
+            <div class="composer-actions"><button type="button" class="attach" aria-label="Attach a file">+</button><span class="hint">⌘ Enter to send</span><button class="send" type="submit" aria-label="Send message">↑</button></div>
+          </form>
+          <p class="privacy-note">Orbit can make mistakes. Check important details.</p>
+        </div>
+      </section>
+    </main>
+    <template id="user-template"><article class="message user-message"><div class="message-meta"><span class="avatar user">JM</span><strong>You</strong><time>Just now</time></div><div class="bubble"></div></article></template>
+    <template id="ai-template"><article class="message generated"><div class="message-meta"><span class="avatar sage">L</span><strong>Lyra</strong><span class="role">Strategy</span><time>Just now</time></div><div class="message-content"><p></p></div></article></template>
+    <script src="script.js"></script>
+  </body>
+</html>
